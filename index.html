@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PersonalitySeek — Bootcamp II</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    
+    <header>
+        <h1>PersonalitySeek</h1>
+        <p>Busque por um perfil de personalidade (ex: códigos MBTI)</p>
+    </header>
+    <main>
+        <section class="busca">
+            <input type="text" id="campo-busca" placeholder="Ex: INTJ, ENFP, ESTJ..." autofocus>
+            <button id="botao-buscar">Buscar</button>
+        </section>
+
+        <section id="resultado"></section> 
+    </main>
+
+    <footer>Dados: Personality API (personality.fyi) · Projeto da disciplina Bootcamp II</footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

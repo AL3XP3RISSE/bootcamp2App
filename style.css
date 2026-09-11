@@ -2,13 +2,17 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f4f4f8;
+    color: #fff;
+    background-image: url("mbti.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #222;
     min-height: 100vh;
 }
 
 header {
-    background: #7e22ce; /* escolha suas cores — consistência conta */
+    background: #8922ce; /* escolha suas cores — consistência conta */
     color: #fff;
     text-align: center;
     padding: 24px 16px;
@@ -22,7 +26,7 @@ header {
 }
 .busca input {
     padding: 10px 14px;
-    border: 2px solid #7e22ce;
+    border: 2px solid #8922ce;
     border-radius: 8px;
     width: min(320px, 70vw);
     font-size: 1rem;
@@ -31,7 +35,7 @@ header {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
-    background: #7e22ce;
+    background: #8922ce;
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
@@ -40,7 +44,7 @@ header {
 /* Cartão de resultado (o JS injeta .cartao ou .erro em #resultado) */
 #resultado { display: flex; justify-content: center; padding: 0 16px 32px; }
 .cartao {
-    background: #fff;
+    background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 14px rgba(0,0,0,.12);
     padding: 24px;
@@ -48,11 +52,11 @@ header {
     width: min(360px, 90vw);
 }
 .cartao img { width: 140px; image-rendering: pixelated; }
-.cartao h2 { text-transform: capitalize; margin: 8px 0; color: #7e22ce; }
+.cartao h2 { text-transform: capitalize; margin: 8px 0; color: #22ce9a; }
 .tipo {
     display: inline-block;
     background: #ede9fe;
-    color: #6b21a8;
+    color: #eec50e;
     border-radius: 999px;
     padding: 2px 12px;
     margin: 2px;
@@ -60,7 +64,7 @@ header {
 }
 .erro {
     background: #fef2f2;
-    color: #b91c1c;
+    color: #8922ce;
     border: 1px solid #fecaca;
     border-radius: 10px;
     padding: 16px 20px;
