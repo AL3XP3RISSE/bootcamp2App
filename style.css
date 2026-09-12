@@ -95,9 +95,7 @@ header {
     margin-bottom: 20px; /* Espaço para o footer não colar */
 }
 
-/* =========================================
-   3. ESTILOS DA PÁGINA DE BUSCA (Index)
-   ========================================= */
+/* 3. ESTILOS DA PÁGINA DE BUSCA (Index) */
 .index-container {
     text-align: center;
     max-width: 600px; 
@@ -135,19 +133,6 @@ header {
 
 .busca input:focus {
     border-color: var(--cor-concordo);
-}
-@media (max-width: 600px) {
-    /* ... suas regras anteriores ... */
-    
-    .index-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    #botao-teste {
-        width: 100%; /* Botão volta a ficar largo no celular */
-    }
 }
 /* Cartão de Resultado da Busca */
 #resultado { 
@@ -202,9 +187,7 @@ header {
 }
 .dica-busca { color: #94a3b8; font-style: italic; }
 
-/* =========================================
-   4. ESTILOS DO TESTE (Escala Likert)
-   ========================================= */
+/* 4. ESTILOS DO TESTE (Escala Likert) */
 .progresso-wrapper {
     background: #e2e8f0;
     height: 8px;
@@ -272,9 +255,7 @@ header {
 .discordo-2 input:checked + .bolinha { background: #a684b5; border-color: #a684b5; }
 .discordo-3 input:checked + .bolinha { background: var(--cor-discordo); border-color: var(--cor-discordo); }
 
-/* =========================================
-   5. BOTÕES E RODAPÉ GERAIS
-   ========================================= */
+/* 5. BOTÕES E RODAPÉ GERAIS */
 .botoes-navegacao {
     display: flex;
     justify-content: space-between;
@@ -317,11 +298,26 @@ footer {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra para ler sobre a foto de fundo */
 }
 
-/* =========================================
-   6. RESPONSIVIDADE
-   ========================================= */
+/* 6. RESPONSIVIDADE */
 @media (max-width: 600px) {
-    .opcoes-escala { flex-direction: column; gap: 15px; padding: 0; }
-    .label-concordo, .label-discordo { margin: 10px 0; }
-    .busca { flex-direction: column; }
+    header {
+        padding: 20px 10px;
+    }
+    
+    .busca {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+        width: 100%;
+    }
+    
+    .busca input {
+        width: 100%; /* Força a barra de pesquisa a usar todo o espaço */
+        max-width: none;
+        margin-bottom: 10px;
+    }
+    
+    .busca button {
+        width: 100%; /* Botão largo e fácil de clicar */
+    }
 }
