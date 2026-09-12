@@ -287,6 +287,20 @@ header {
     background-color: var(--cor-texto);
     color: #fff;
 }
+/* --- Responsividade (Para Celulares) --- */
+@media (max-width: 600px) {
+    .opcoes-escala {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .label-concordo, .label-discordo {
+        margin: 10px 0;
+    }
+    /* Reorganizando para mobile ficar vertical */
+    .opcoes-escala {
+        padding: 0;
+    }
+}
 
 #botao-teste { width: 100%; margin-bottom: 20px; }
 
@@ -296,28 +310,4 @@ footer {
     color: #cbd5e1; 
     font-size: .85rem; 
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra para ler sobre a foto de fundo */
-}
-
-/* 6. RESPONSIVIDADE */
-@media (max-width: 600px) {
-    header {
-        padding: 20px 10px;
-    }
-    
-    .busca {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 10px;
-        width: 100%;
-    }
-    
-    .busca input {
-        width: 100%; /* Força a barra de pesquisa a usar todo o espaço */
-        max-width: none;
-        margin-bottom: 10px;
-    }
-    
-    .busca button {
-        width: 100%; /* Botão largo e fácil de clicar */
-    }
 }
