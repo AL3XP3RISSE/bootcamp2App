@@ -58,7 +58,7 @@ header {
     background: #8922ce; /* escolha suas cores — consistência conta */
     color: #fff;
     text-align: center;
-    padding: 24px 900px;
+    padding: 24px 20px;
 }
 
 /* --- Botão Estilizado (Gradiente, Sombra e Flutuação) --- */
@@ -133,19 +133,6 @@ header {
 
 .busca input:focus {
     border-color: var(--cor-concordo);
-}
-@media (max-width: 600px) {
-    /* ... suas regras anteriores ... */
-    
-    .index-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    #botao-teste {
-        width: 100%; /* Botão volta a ficar largo no celular */
-    }
 }
 /* Cartão de Resultado da Busca */
 #resultado { 
