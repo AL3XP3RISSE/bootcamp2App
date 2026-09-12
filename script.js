@@ -4,7 +4,6 @@ const URL_BASE = "https://personality.fyi/api/v1";
 //Traduções dos tipos de personalidade para português
 const traducoes = {
     "intj": {
-        img: "https://via.placeholder.com/140",
         code: "INTJ-A/INTJ-T",
         nome: "Analista",
         titulo: "Arquiteto",
@@ -44,7 +43,7 @@ const traducoes = {
         nome: "Diplomata",
         titulo: "Mediador",
         descricao: "Mesmo que pareçam quietas ou modestas, as pessoas com o tipo de personalidade INFP (Mediador) têm uma vida interior ativa e apaixonada. Criativas e imaginativas, elas se perdem alegremente em seus pensamentos, inventando todo tipo de histórias e conversas em suas mentes. Conhecidos pela sensibilidade, os INFPs podem ter respostas emocionais muito intensas à música, arte, natureza e às pessoas ao seu redor. Eles são conhecidos por serem extremamente sentimentais e nostálgicos, frequentemente guardando lembranças e recordações especiais que iluminam seus dias e enchem seu coração de alegria. Idealistas e empáticos, os INFPs buscam relacionamentos profundos e cheios de alma, além de terem um forte desejo de ajudar o próximo. Devido à natureza acelerada e competitiva da sociedade, podem às vezes se sentir solitários ou invisíveis, perdidos em um mundo que parece não valorizar as características que os tornam únicos. Ainda assim, é exatamente por sua intensa sensibilidade e profunda criatividade que os INFPs possuem um potencial singular para estabelecer conexões autênticas e promover transformações positivas.",
-        tracos: ["Idealista", "Criativo", "Empático", "Autentico"]
+        tracos: ["Idealista", "Criativo", "Empático", "Autêntico"]
     },
     "enfj": {
         code: "ENFJ-A/ENFJ-T",

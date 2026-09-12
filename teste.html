@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Personalidade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="teste-container">
+        <!-- Barra de Progresso -->
+        <div class="progresso-wrapper">
+            <div class="progresso-barra" style="width: 10%;"></div>
+        </div>
+        <p class="progresso-texto">10% concluído</p>
+
+        <!-- Pergunta -->
+        <div class="pergunta-card">
+            <h2>Você costuma iniciar conversas com facilidade em um ambiente cheio de pessoas desconhecidas.</h2>
+            
+            <!-- Escala de Respostas -->
+            <div class="opcoes-escala">
+                <span class="label-concordo">Concordo</span>
+
+                <!-- Opções (Bolinhas) -->
+                <label class="opcao concordo-3">
+                    <input type="radio" name="p1" value="3">
+                    <span class="bolinha"></span>
+                </label>
+                <label class="opcao concordo-2">
+                    <input type="radio" name="p1" value="2">
+                    <span class="bolinha"></span>
+                </label>
+                <label class="opcao concordo-1">
+                    <input type="radio" name="p1" value="1">
+                    <span class="bolinha"></span>
+                </label>
+                
+                <label class="opcao neutro">
+                    <input type="radio" name="p1" value="0">
+                    <span class="bolinha"></span>
+                </label>
+
+                <label class="opcao discordo-1">
+                    <input type="radio" name="p1" value="-1">
+                    <span class="bolinha"></span>
+                </label>
+                <label class="opcao discordo-2">
+                    <input type="radio" name="p1" value="-2">
+                    <span class="bolinha"></span>
+                </label>
+                <label class="opcao discordo-3">
+                    <input type="radio" name="p1" value="-3">
+                    <span class="bolinha"></span>
+                </label>
+
+                <span class="label-discordo">Discordo</span>
+            </div>
+        </div>
+
+        <!-- Botões de Navegação -->
+        <div class="botoes-navegacao">
+            <button class="btn-voltar">Anterior</button>
+            <button class="btn-proximo">Próximo</button>
+        </div>
+    </div>
+
+    <script src="teste.js"></script>
+</body>
+</html>
