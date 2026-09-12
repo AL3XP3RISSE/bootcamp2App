@@ -342,20 +342,36 @@ footer {
     }
 }
 /* --- Ajustes da Escala para Celular --- */
-    .opcoes-escala {
-        padding: 0;
-        gap: 5px; /* Reduz o espaço entre as opções */
-    }
-    
-    .label-concordo, .label-discordo {
-        font-size: 0.85rem; /* Diminui a fonte dos rótulos */
+.opcoes-escala {
+        padding: 0 !important;
+        gap: 2px !important;
+        justify-content: space-between !important;
     }
 
-    /* Encolhe as bolinhas proporcionalmente para caberem lado a lado */
-    .concordo-3 .bolinha, .discordo-3 .bolinha { width: 38px; height: 38px; }
+    .label-concordo, .label-discordo {
+        font-size: 0.75rem !important;
+        margin: 0 5px !important;
+    }
+
+    .concordo-3 .bolinha, .discordo-3 .bolinha { 
+        width: 32px !important; 
+        height: 32px !important; 
+    }
     
-    .concordo-2 .bolinha, .discordo-2 .bolinha { width: 32px; height: 32px; border-width: 2px; }
+    .concordo-2 .bolinha, .discordo-2 .bolinha { 
+        width: 28px !important; 
+        height: 28px !important; 
+        border-width: 2px !important; 
+    }
     
-    .concordo-1 .bolinha, .discordo-1 .bolinha { width: 26px; height: 26px; border-width: 2px; }
+    .concordo-1 .bolinha, .discordo-1 .bolinha { 
+        width: 24px !important; 
+        height: 24px !important; 
+        border-width: 2px !important; 
+    }
     
-    .neutro .bolinha { width: 22px; height: 22px; border-width: 2px; }
+    .neutro .bolinha { 
+        width: 20px !important; 
+        height: 20px !important; 
+        border-width: 2px !important; 
+    }
