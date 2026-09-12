@@ -313,16 +313,44 @@ footer {
 
 /* 6. RESPONSIVIDADE */
 @media (max-width: 600px) {
-    .opcoes-escala { flex-direction: column; gap: 15px; padding: 0; }
-    .label-concordo, .label-discordo { margin: 10px 0; }
-    .busca { flex-direction: column; }
+    /* 1. Empilha o título em cima e o botão embaixo */
     .index-header {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        gap: 20px;
+        padding: 20px 10px;
+    }
+
+    /* 2. Centraliza os textos do título */
+    .header-textos {
+        text-align: center;
+        margin-bottom: 15px; 
+    }
+
+    /* 3. Ajusta o botão para não "esticar" a tela */
+    #botao-teste {
+        width: 100%;
+        margin: 0;
+        white-space: normal; /* Permite que o texto longo do botão quebre em duas linhas */
+        font-size: 0.95rem; 
+    }
+
+    /* 4. Barra de pesquisa em coluna */
+    .busca {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+        width: 100%;
     }
     
-    #botao-teste {
-        width: 100%; /* Botão volta a ficar largo no celular */
+    .busca input {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 10px;
+    }
+    
+    .busca button {
+        width: 100%;
     }
 }

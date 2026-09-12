@@ -16,4 +16,4 @@ Um WebSite de busca para pesquisar informações sobre a personalidade MBTI(Myer
 2. Abra o arquivo `index.html` no navegador
 ## Links
 ##- **Aplicação no ar (GitHub Pages):** https://al3xp3risse.github.io/bootcamp2App/
-#- **Repositório:** https://github.com/AL3XP3RISSE/bootcamp2App
+##- **Repositório:** https://github.com/AL3XP3RISSE/bootcamp2App
