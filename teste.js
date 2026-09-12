@@ -9,6 +9,8 @@ const perguntas = [
     "Você evita conflitos e prefere manter a paz, mesmo que isso signifique não expressar sua opinião.",
     "Você gosta de experimentar coisas novas e se sente entediado com a rotina.",
     "Você prefere seguir regras e procedimentos estabelecidos do que improvisar.",
+    "Você se sente mais confortável em ambientes estruturados e organizados do que em ambientes caóticos.",
+    "Você tende a tomar decisões com base em lógica e análise, em vez de emoções."
 ];
 
 // 2. Variáveis de Controle
