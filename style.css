@@ -134,6 +134,19 @@ header {
 .busca input:focus {
     border-color: var(--cor-concordo);
 }
+@media (max-width: 600px) {
+    /* ... suas regras anteriores ... */
+    
+    .index-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    #botao-teste {
+        width: 100%; /* Botão volta a ficar largo no celular */
+    }
+}
 /* Cartão de Resultado da Busca */
 #resultado { 
     display: flex; 
@@ -298,46 +311,18 @@ footer {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra para ler sobre a foto de fundo */
 }
 
-/* --- Responsividade (Para Celulares) --- */
+/* 6. RESPONSIVIDADE */
 @media (max-width: 600px) {
-    /* 1. Empilha o título em cima e o botão embaixo */
+    .opcoes-escala { flex-direction: column; gap: 15px; padding: 0; }
+    .label-concordo, .label-discordo { margin: 10px 0; }
+    .busca { flex-direction: column; }
     .index-header {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         text-align: center;
-        padding: 20px 10px;
+        gap: 20px;
     }
-
-    /* 2. Centraliza os textos do título */
-    .header-textos {
-        text-align: center;
-        margin-bottom: 15px; 
-    }
-
-    /* 3. Ajusta o botão para não "esticar" a tela */
+    
     #botao-teste {
-        width: 100%;
-        margin: 0;
-        white-space: normal; /* Permite que o texto longo do botão quebre em duas linhas */
-        font-size: 0.95rem; 
-    }
-
-    /* 4. Barra de pesquisa em coluna */
-    .busca {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 10px;
-        width: 100%;
-    }
-    
-    .busca input {
-        width: 100%;
-        max-width: none;
-        margin-bottom: 10px;
-    }
-    
-    .busca button {
-        width: 100%;
+        width: 100%; /* Botão volta a ficar largo no celular */
     }
 }
