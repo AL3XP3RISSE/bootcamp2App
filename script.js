@@ -176,3 +176,20 @@ botaoBuscar.addEventListener("click", dispararBusca);
 campoBusca.addEventListener("keydown", (e) => {
     if (e.key === "Enter") dispararBusca();
 });
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Lê a URL atual da página
+    const parametrosNaUrl = new URLSearchParams(window.location.search);
+    
+    // 2. Tenta pegar o valor de "perfil" (ex: "INFJ")
+    const resultadoDoTeste = parametrosNaUrl.get('perfil');
+
+    // 3. Se houver um resultado na URL, preenche o campo
+    if (resultadoDoTeste) {
+        // Seleciona o seu input de busca (usando a classe que vimos no CSS)
+        const campoBusca = document.querySelector('.busca input');
+        
+        if (campoBusca) {
+            campoBusca.value = resultadoDoTeste; // Preenche a caixinha
+        }
+    }
+});

@@ -83,7 +83,7 @@ btnProximo.addEventListener('click', () => {
             <span style="color: #33a474; font-size: 3rem; display: block; margin-top: 15px; margin-bottom: 30px;">
                 ${mbtiCalculado}
             </span>
-            <button onclick="window.location.href='index.html'" style="background-color: #333; color: #fff; padding: 12px 24px; border-radius: 25px; border: none; font-size: 1rem; font-weight: bold; cursor: pointer;">
+            <button onclick="window.location.href='index.html?perfil=${mbtiCalculado}'" style="background-color: #333; color: #fff; padding: 12px 24px; border-radius: 25px; border: none; font-size: 1rem; font-weight: bold; cursor: pointer;">
                 Pesquisar minha personalidade
             </button>
         `;
