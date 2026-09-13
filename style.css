@@ -470,3 +470,41 @@ footer {
         height: 20px !important; 
         border-width: 2px !important; 
     }
+    /* --- Gráficos de Intensidade --- */
+.graficos-resultado {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.grafico-eixo {
+    margin-bottom: 15px;
+}
+
+.grafico-legendas {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.legenda-esquerda { color: var(--cor-concordo); }
+.legenda-direita { color: var(--cor-discordo); }
+
+.grafico-barra-fundo {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    display: flex;
+    overflow: hidden;
+}
+
+/* O lado esquerdo da barra cresce para a direita, o direito preenche o resto */
+.grafico-preenchimento-esq { background: var(--cor-concordo); height: 100%; }
+.grafico-preenchimento-dir { background: var(--cor-discordo); height: 100%; }
+
+/* Modo escuro para os gráficos */
+body.dark-mode .grafico-barra-fundo {
+    background: #333333;
+}

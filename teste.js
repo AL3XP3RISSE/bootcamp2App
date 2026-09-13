@@ -76,17 +76,87 @@ btnProximo.addEventListener('click', () => {
         barraProgresso.style.width = "100%";
         textoProgresso.textContent = "100% concluído";
         
-        const mbtiCalculado = calcularMBTI(respostas);
-        
+        const resultado = calcularMBTI(respostas);
+        const mbtiCalculado = resultado.tipo;
+        const pontos = resultado.pontos;
+        const maxPontos = (perguntas.length / 4) * 3; 
+
+        // Cálculos de Porcentagem
+        const pctE = Math.round(((pontos.ei + maxPontos) / (maxPontos * 2)) * 100);
+        const pctI = 100 - pctE;
+
+        const pctS = Math.round(((pontos.sn + maxPontos) / (maxPontos * 2)) * 100);
+        const pctN = 100 - pctS;
+
+        const pctT = Math.round(((pontos.tf + maxPontos) / (maxPontos * 2)) * 100);
+        const pctF = 100 - pctT;
+
+        const pctJ = Math.round(((pontos.jp + maxPontos) / (maxPontos * 2)) * 100);
+        const pctP = 100 - pctJ;
+
         tituloPergunta.innerHTML = `
-            Teste Concluído!<br>
-            <span style="color: #33a474; font-size: 3rem; display: block; margin-top: 15px; margin-bottom: 30px;">
-                ${mbtiCalculado}
-            </span>
-            <button onclick="window.location.href='index.html?perfil=${mbtiCalculado}'" style="background-color: #333; color: #fff; padding: 12px 24px; border-radius: 25px; border: none; font-size: 1rem; font-weight: bold; cursor: pointer;">
-                Pesquisar minha personalidade
-            </button>
-        `;
+    <span style="color: #33a474; font-size: 3rem; display: block; margin-top: 15px; margin-bottom: 20px;">
+        ${mbtiCalculado}
+    </span>
+    <div class="graficos-resultado">
+        <!-- Barra Eixo E/I -->
+        <div class="grafico-eixo">
+            <div class="grafico-legendas">
+                <span class="legenda-esquerda">Extroversão (${pctE}%)</span>
+                <span class="legenda-direita">Introversão (${pctI}%)</span>
+            </div>
+            <div class="grafico-barra-fundo">
+                <div class="grafico-preenchimento-esq" style="width: ${pctE}%"></div>
+                <div class="grafico-preenchimento-dir" style="width: ${pctI}%"></div>
+            </div>
+        </div>
+
+        <!-- Barra Eixo S/N -->
+        <div class="grafico-eixo">
+            <div class="grafico-legendas">
+                <span class="legenda-esquerda">Sensação (${pctS}%)</span>
+                <span class="legenda-direita">Intuição (${pctN}%)</span>
+            </div>
+            <div class="grafico-barra-fundo">
+                <div class="grafico-preenchimento-esq" style="width: ${pctS}%"></div>
+                <div class="grafico-preenchimento-dir" style="width: ${pctN}%"></div>
+            </div>
+        </div>
+        
+        <!-- Barra Eixo T/F -->
+        <div class="grafico-eixo">
+            <div class="grafico-legendas">
+                <span class="legenda-esquerda">Pensamento (${pctT}%)</span>
+                <span class="legenda-direita">Sentimento (${pctF}%)</span>
+            </div>
+            <div class="grafico-barra-fundo">
+                <div class="grafico-preenchimento-esq" style="width: ${pctT}%"></div>
+                <div class="grafico-preenchimento-dir" style="width: ${pctF}%"></div>
+            </div>
+        </div>
+
+        <!-- Barra Eixo J/P -->
+        <div class="grafico-eixo">
+            <div class="grafico-legendas">
+                <span class="legenda-esquerda">Julgamento (${pctJ}%)</span>
+                <span class="legenda-direita">Percepção (${pctP}%)</span>
+            </div>
+            <div class="grafico-barra-fundo">
+                <div class="grafico-preenchimento-esq" style="width: ${pctJ}%"></div>
+                <div class="grafico-preenchimento-dir" style="width: ${pctP}%"></div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                <button id="botao-teste" onclick="window.location.href='index.html?busca=${mbtiCalculado}'">
+                    Pesquisar sobre ${mbtiCalculado}
+                </button>
+                
+                <button class="btn-voltar" onclick="window.location.reload()">
+                    Refazer Teste
+                </button>
+    </div>
+`;
         
         document.querySelector('.opcoes-escala').style.display = "none";
         document.querySelector('.botoes-navegacao').style.display = "none";
@@ -124,7 +194,10 @@ function calcularMBTI(respostas) {
     const letra3 = eixos.tf >= 0 ? "T" : "F";
     const letra4 = eixos.jp >= 0 ? "J" : "P";
 
-    return letra1 + letra2 + letra3 + letra4;
+    return {
+        tipo: letra1 + letra2 + letra3 + letra4,
+        pontos: eixos
+    }
 }
 const btnTema = document.getElementById('btn-tema');
 
