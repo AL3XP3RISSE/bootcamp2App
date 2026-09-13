@@ -193,3 +193,25 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+const btnTema = document.getElementById('btn-tema');
+
+// Verifica se o usuário já havia escolhido o modo escuro antes
+if (localStorage.getItem('tema') === 'escuro') {
+    document.body.classList.add('dark-mode');
+    btnTema.textContent = '☀️'; // Muda o ícone para o sol
+}
+
+btnTema.addEventListener('click', () => {
+    // Liga/Desliga a classe dark-mode no body
+    document.body.classList.toggle('dark-mode');
+    
+    // Se o modo escuro estiver ativado, salva no navegador e muda o ícone
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('tema', 'escuro');
+        btnTema.textContent = '☀️';
+    } else {
+        localStorage.setItem('tema', 'claro');
+        btnTema.textContent = '🌙'; // Muda o ícone para a lua
+    }
+});
+

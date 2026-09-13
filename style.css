@@ -8,6 +8,77 @@
     --cor-discordo-claro: #c2a7cf;
     --cor-neutro: #999999;
 }
+/*Modo Escuro*/
+body.dark-mode {
+    --cor-fundo: #1e293b;
+    --cor-texto: #f1f5f9;
+}
+body.dark-mode .cartao {
+    background-color: #1e1e1e; /* Fundo escuro para o container e cartão */
+    border: 1px solid #333; /* Borda sutil para destacar o cartão */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidade */
+}
+body.dark-mode .teste-container{
+    background: #1e1e1e;
+}
+body.dark-mode .busca input {
+    background-color: #2d2d2d;
+    color: #e2e8f0;
+    border: 2px solid #444;
+}
+body.dark-mode .busca input::placeholder {
+    color: #888;
+}
+body.dark-mode .busca input:focus {
+    border-color: #3ca37a; /* Cor de destaque ao focar no modo escuro */
+}
+body.dark-mode .busca button {
+    background-color: #2d2d2d;
+    color: #e2e8f0;
+    border: 2px solid #444;
+}
+
+body.dark-mode .btn-voltar, .btn-proximo{
+    background-color: #f1f1f1; /* Fica cinza escuro em vez de preto sólido */
+    color: #2d2d2d; /* Texto branco para contraste */
+    border-color: transparent;
+}
+
+body.dark-mode .btn-voltar:hover {
+    background-color: #333;
+}
+
+/* Elementos do Teste (Barra de Progresso e Textos Secundários) */
+body.dark-mode .progresso-wrapper {
+    background: #686666; /* Fundo da barra de progresso escuro */
+}
+body.dark-mode .progresso-texto {
+    color: #94a3b8; /* Texto de % mais visível no escuro */
+}
+
+/* Bolinhas da Escala Likert */
+body.dark-mode .bolinha {
+    border-color: #aaa7a7; /* Borda cinza escura nas bolinhas não clicadas */
+}
+
+/* Cores de Erro (Se o usuário não digitar nada na busca) */
+body.dark-mode .erro {
+    background: #451a1a; /* Vermelho muito escuro */
+    color: #fecaca;
+    border-color: #7f1d1d;
+}
+body.dark-mode .header-textos h1 {
+    color: #1e293b; /* Título principal em branco */
+}
+body.dark-mode .header-textos p {
+    color: #1e293b; /* Subtítulo em cinza claro */
+}
+body.dark-mode #botao-teste {
+    background-color: #2d2d2d;
+    border: transparent;
+    color: #1e293b;
+}
+
 #btn-tema{
     background: transparent;
     border: none;
@@ -52,7 +123,6 @@ body {
     text-align: left;
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #e2e8f0; /* Linha sutil para separar da busca */
 }
 
 .header-textos h1 {
