@@ -142,7 +142,6 @@ async function buscarPersonalidade(termo) {
         const traduzido = traducoes[termoBuscado];
 
         // 5) Extrai dados 
-        const imagem = dados.image || "https://via.placeholder.com/140"; // imagem padrão se não houver
         const mbti = traduzido ? traduzido.code : (dados.code || termo.toUpperCase());
         const nome = traduzido ? traduzido.nome : (dados.name || termo.toUpperCase());
         const titulo = traduzido ? traduzido.titulo : (dados.title || "Título desconhecido");
@@ -155,7 +154,6 @@ async function buscarPersonalidade(termo) {
         // 7) Monta o HTML
         areaResultado.innerHTML = `
             <article class="cartao">
-                <img src="${imagem}" alt="Imagem de ${mbti}">
                 <h1>${mbti}</h1>
                 <h2>${nome} — ${titulo}</h2>
                 <p>${descricao}</p>

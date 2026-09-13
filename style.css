@@ -20,8 +20,8 @@
     font-family: 'Nunito', "Segoe UI", Arial, sans-serif;
 }
 body {
-    background-color: var(--cor-fundo);
-    background-image: url("mbti.png");
+    background-color: #e3e9e8;
+    background-image: url(gradient\ sphere.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -55,15 +55,19 @@ body {
     margin: 0;
 }
 header {
-    background: #8922ce; /* escolha suas cores — consistência conta */
+    background: #8922ce;/* escolha suas cores — consistência conta */
+    background: linear-gradient(135deg, #8922ce, #963659);
+    background-position: center;
+    background-size: cover;
     color: #fff;
-    text-align: center;
     padding: 24px 20px;
+    text-align: center;
+    border-radius: 15px;
 }
 
 /* --- Botão Estilizado (Gradiente, Sombra e Flutuação) --- */
 #botao-teste {
-    background: linear-gradient(135deg, var(--cor-concordo), #2b8a62);
+    background: linear-gradient(135deg, var(--cor-concordo), #25a872);
     color: #ffffff;
     padding: 12px 28px;
     border: none;
@@ -148,6 +152,8 @@ header {
     padding: 24px;
     text-align: center;
     width: 100%;
+    max-width: 800px; /* Trava o crescimento horizontal */
+    margin: 0 auto;
 }
 
 .cartao h2 { 
