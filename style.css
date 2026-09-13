@@ -2,13 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
 :root {
-    --cor-fundo: #f3f4f6;
-    --cor-texto: #333333;
     --cor-concordo: #33a474; 
     --cor-concordo-claro: #8be0bc;
     --cor-discordo: #88619a; 
     --cor-discordo-claro: #c2a7cf;
     --cor-neutro: #999999;
+}
+#btn-tema{
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 20px; 
+    right: 20px;
+    transition: color 0.3s;
+}
+#btn-tema:hover {
+    transform: scale(1.1);
 }
 
   /* 2. RESET E BASE DA PÁGINA (Unificado)*/
@@ -59,7 +70,7 @@ header {
     background: linear-gradient(135deg, #8922ce, #963659);
     background-position: center;
     background-size: cover;
-    color: #fff;
+    color: #f1f1f1;
     padding: 24px 20px;
     text-align: center;
     border-radius: 15px;
@@ -67,7 +78,7 @@ header {
 
 /* --- Botão Estilizado (Gradiente, Sombra e Flutuação) --- */
 #botao-teste {
-    background: linear-gradient(135deg, var(--cor-concordo), #25a872);
+    background: linear-gradient(135deg, #8922ce, #25a872);
     color: #ffffff;
     padding: 12px 28px;
     border: none;
@@ -75,7 +86,7 @@ header {
     font-size: 1.05rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(51, 164, 116, 0.3);
+    box-shadow: 0 4px 15px rgba(123, 187, 155, 0.3);
     transition: transform 0.2s, box-shadow 0.2s;
     white-space: nowrap; /* Impede o botão de esmagar o texto em duas linhas */
     margin-left: 20px; /* Espaço entre o botão e o texto do header */
@@ -83,10 +94,8 @@ header {
 
 #botao-teste:hover {
     transform: translateY(-3px); /* Faz o botão "subir" ao passar o mouse */
-    box-shadow: 0 6px 20px rgba(243, 250, 247, 0.5);
+    box-shadow: 0 6px 20px rgba(218, 233, 226, 0.5);
 }
-
-
 
 /* O container branco central que serve para ambas as páginas */
 .teste-container {
@@ -95,7 +104,7 @@ header {
     width: 100%;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(255, 253, 253, 0.15);
     margin-bottom: 20px; /* Espaço para o footer não colar */
 }
 
@@ -111,7 +120,7 @@ header {
 }
 
 .index-header p {
-    color: #fcfdff;
+    color: #ececee;
     margin-bottom: 20px;
 }
 
@@ -128,7 +137,7 @@ header {
 .busca input {
     flex: 1;
     padding: 12px 20px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #f4f6f8;
     border-radius: 25px;
     font-size: 1rem;
     outline: none;
@@ -136,7 +145,7 @@ header {
 }
 
 .busca input:focus {
-    border-color: var(--cor-concordo);
+    border-color: #3ca37a; /* Cor de destaque ao focar */
 }
 /* Cartão de Resultado da Busca */
 #resultado { 
@@ -146,7 +155,7 @@ header {
 }
 
 .cartao {
-    background: #ffffff;
+    background: #f1f1f1;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 24px;
@@ -195,7 +204,7 @@ header {
 
 /* 4. ESTILOS DO TESTE (Escala Likert) */
 .progresso-wrapper {
-    background: #e2e8f0;
+    background: #b2bac4;
     height: 8px;
     border-radius: 4px;
     width: 100%;
@@ -241,7 +250,7 @@ header {
 
 .bolinha {
     border-radius: 50%;
-    border: 3px solid #cbd5e1;
+    border: 3px solid #b2bac4;
     display: inline-block;
     transition: all 0.2s ease;
 }
@@ -271,7 +280,6 @@ header {
 /* Escopo genérico para botões da interface nova */
 .btn-proximo, .btn-voltar, .busca button, #botao-teste {
     padding: 12px 24px;
-    border: none;
     border-radius: 25px;
     font-size: 1rem;
     font-weight: 700;
@@ -284,14 +292,25 @@ header {
 }
 
 .btn-voltar {
-    background-color: transparent;
-    color: var(--cor-texto);
-    border: 2px solid #e2e8f0;
+    background-color: #d8dde2;
+    border: transparent;
+    color: #2d2d2d;
 }
 
-.btn-proximo, .busca button, #botao-teste {
-    background-color: var(--cor-texto);
-    color: #fff;
+.btn-proximo {
+    background-color: #d8dde2;
+    border: transparent;
+    color: #2d2d2d;
+}
+#botao-teste {
+    background-color: #2d2d2d;
+    border: transparent;
+    color: #f1f1f1;
+}
+.busca button {
+    background-color: #f1f1f1;
+    border: 2px solid #444;
+    color: #444;
 }
 
 #botao-teste { width: 100%; margin-bottom: 20px; }
