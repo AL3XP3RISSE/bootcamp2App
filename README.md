@@ -14,6 +14,11 @@ Um WebSite de busca para pesquisar informações sobre a personalidade MBTI(Myer
 ## Como executar localmente
 1. Clone: `git clone https://github.com/AL3XP3RISSE/bootcamp2App.git`
 2. Abra o arquivo `index.html` no navegador
+## Persistência
+- Banco de Dados:
+- Estrutura da Tabela:
+- O que é salvo:
 ## Links
 - **Aplicação no ar (GitHub Pages):** https://al3xp3risse.github.io/bootcamp2App/
-- **Repositório:** https://github.com/AL3XP3RISSE/bootcamp2App
+- **Repositório GitHub:** https://github.com/AL3XP3RISSE/bootcamp2App
+- **Repositório DockerHub:** 
