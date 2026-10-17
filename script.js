@@ -121,6 +121,7 @@ const traducoes = {
 const campoBusca = document.getElementById("campo-busca");
 const botaoBuscar = document.getElementById("botao-buscar");
 const areaResultado = document.getElementById("resultado");
+let ultimoResultado = null;   // guarda o que está na tela, para salvar nos favoritos
 
 // ---------- Função principal: consulta a API e monta o cartão ----------
 async function buscarPersonalidade(termo) {
@@ -150,7 +151,7 @@ async function buscarPersonalidade(termo) {
         // 6) Adiciona o processamento da variável "tracos" que estava faltando
         const listaTracos = traduzido && traduzido.tracos ? traduzido.tracos : (dados.traits || []);
         const tracos = listaTracos.map(t => `<span class="traco">${t}</span>`).join(" · ");
-            
+        
         // 7) Monta o HTML
         areaResultado.innerHTML = `
             <article class="cartao">
@@ -160,8 +161,7 @@ async function buscarPersonalidade(termo) {
                 <div class="tracos-container">
                     <b>Principais traços:</b> ${tracos}
                 </div>
-                <button class="btn-favoritar"
-                    onclick="salvarFavorito('${termoBuscado.toUpperCase()}', '${nome}', '${titulo}')">
+                <button class="btn-favoritar" onclick="salvarFavorito()">
                     ⭐ Salvar nos favoritos
                 </button>
             </article>`;
@@ -191,8 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const inputBusca = document.querySelector('.busca input'); // Seleciona o seu campo de texto
         if (inputBusca) {
             inputBusca.value = mbtiBuscado;
-            
         }
+        buscarPersonalidade(mbtiBuscado.toLowerCase());
     }
 });
 const btnTema = document.getElementById('btn-tema');
@@ -217,19 +217,27 @@ btnTema.addEventListener('click', () => {
     }
 });
 // ================= PERSISTÊNCIA (Supabase) =================
-const TABELA = "Favoritos";   // <-- igual ao nome no banco (maiúsculas incluídas)
+const TABELA = "Favoritos";   // <-- exatamente como está no Supabase (maiúscula incluída)
 const db = supabase.createClient(PROJETO_URL, CHAVE_PUBLICA);
 const listaFavoritos = document.getElementById("lista-favoritos");
 
 // ---------- CREATE ----------
-async function salvarFavorito(tipo, grupo, titulo) {
-    const { error } = await db.from(TABELA).insert({ tipo, grupo, titulo });
+async function salvarFavorito() {
+    if (!ultimoResultado) return;
+
+    const { error } = await db.from(TABELA).insert({
+        code: ultimoResultado.code,
+        nome: ultimoResultado.nome,
+        titulo: ultimoResultado.titulo,
+        descricao: ultimoResultado.descricao,
+        tracos: ultimoResultado.tracos
+    });
 
     if (error) {
         console.log(error);
         // 23505 = violação de UNIQUE (já é favorito)
         const msg = error.code === "23505"
-            ? `${tipo} já está nos seus favoritos!`
+            ? `${ultimoResultado.code} já está nos seus favoritos!`
             : "Não foi possível salvar agora. Tente novamente.";
         alert(msg);
         return;
@@ -250,23 +258,30 @@ async function carregarFavoritos() {
         return;
     }
 
-    if (data.length === 0) {
+    const validos = data.filter(f => f.code);
+
+    if (validos.length === 0) {
         listaFavoritos.innerHTML = "<p>Nenhum favorito ainda. Busque e salve!</p>";
         return;
     }
 
-    listaFavoritos.innerHTML = data.map(f => `
+    listaFavoritos.innerHTML = validos.map(f => {
+        const tipo = f.code.substring(0, 4).toLowerCase();   // "INTJ-A/INTJ-T" -> "intj"
+        const tracos = Array.isArray(f.tracos) ? f.tracos.join(", ") : (f.tracos || "");
+        return `
         <div class="fav-item">
-            <span onclick="buscarPersonalidade('${f.tipo.toLowerCase()}')" style="cursor:pointer">
-                <b>${f.tipo}</b> — ${f.titulo}
+            <span onclick="buscarPersonalidade('${tipo}')" style="cursor:pointer">
+                <b>${f.code}</b> — ${f.titulo || ""}<br>
+                <small>${tracos}</small>
             </span>
-            <button onclick="removerFavorito('${f.tipo}')">✖</button>
-        </div>`).join("");
+            <button onclick="removerFavorito(${f.id})">✖</button>
+        </div>`;
+    }).join("");
 }
 
 // ---------- DELETE ----------
-async function removerFavorito(tipo) {
-    const { error } = await db.from(TABELA).delete().eq("tipo", tipo);
+async function removerFavorito(id) {
+    const { error } = await db.from(TABELA).delete().eq("id", id);
     if (error) {
         console.log(error);
         alert("Não foi possível remover agora.");
