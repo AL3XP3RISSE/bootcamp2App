@@ -4,32 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PersonalitySeek | Bootcamp II</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <button id="btn-tema">🌙</button>
-    <header>
-        <header class="index-header">
-    <div class="header-textos">
-        <h1>PersonalitySeek</h1>
-        <p>Busque por um perfil de personalidade</p>
-    </div>
-    <button id="botao-teste" onclick="window.location.href='teste.html'">
-        ✨ Faça o Teste e Descubra sua Personalidade! ✨
-    </button>
-</header>
+
+    <header class="index-header">
+        <div class="header-textos">
+            <h1>PersonalitySeek</h1>
+            <p>Busque por um perfil de personalidade</p>
+        </div>
+        <button id="botao-teste" onclick="window.location.href='teste.html'">
+            ✨ Faça o Teste e Descubra sua Personalidade! ✨
+        </button>
     </header>
+
     <main>
         <section class="busca">
             <input type="text" id="campo-busca" placeholder="Ex: INTJ, ENFP, ESTJ..." autofocus>
             <button id="botao-buscar">Buscar</button>
         </section>
 
-        <section id="resultado"></section> 
+        <section id="resultado"></section>
 
-        <!--Favoritos-->
         <section class="favoritos">
-            <h2>Favoritos</h2>
+            <h2>⭐ Meus favoritos</h2>
             <div id="lista-favoritos"></div>
         </section>
     </main>
@@ -37,7 +36,8 @@
     <footer>Dados: Personality API (personality.fyi) · Projeto da disciplina Bootcamp II</footer>
 
     <!--Conexão com o Supabase-->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/supabase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
