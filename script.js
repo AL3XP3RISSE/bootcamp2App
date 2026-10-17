@@ -160,6 +160,10 @@ async function buscarPersonalidade(termo) {
                 <div class="tracos-container">
                     <b>Principais traços:</b> ${tracos}
                 </div>
+                <button class="btn-favoritar"
+                    onclick="salvarFavorito('${termoBuscado.toUpperCase()}', '${nome}', '${titulo}')">
+                    ⭐ Salvar nos favoritos
+                </button>
             </article>`;
     } catch (erro) {
         areaResultado.innerHTML = "<p>Erro ao buscar personalidade.</p>";

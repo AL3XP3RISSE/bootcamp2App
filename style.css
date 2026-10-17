@@ -508,3 +508,27 @@ footer {
 body.dark-mode .grafico-barra-fundo {
     background: #333333;
 }
+/* ---------- Favoritos ---------- */
+.favoritos { width: 100%; max-width: 420px; margin: 0 auto; padding: 0 16px 40px; }
+.favoritos h2 { color: #7e22ce; text-align: center; margin-bottom: 12px; }
+.favoritos p { text-align: center; color: #64748b; }
+
+.fav-item {
+    display: flex; align-items: center; gap: 10px;
+    background: #fff; border-radius: 10px; padding: 10px 14px; margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.fav-item span { flex: 1; }
+.fav-item button {
+    border: none; background: #fef2f2; color: #b91c1c;
+    border-radius: 6px; padding: 4px 10px; cursor: pointer;
+}
+.btn-favoritar {
+    margin-top: 14px; padding: 8px 16px; border: none; border-radius: 8px;
+    background: #fbbf24; color: #4c1d95; font-weight: 600; cursor: pointer;
+}
+
+/* Modo escuro */
+body.dark-mode .fav-item { background: #2d2d2d; color: #e2e8f0; }
+body.dark-mode .fav-item button { background: #451a1a; color: #fecaca; }
+body.dark-mode .favoritos p { color: #94a3b8; }
