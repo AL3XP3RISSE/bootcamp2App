@@ -152,7 +152,16 @@ async function buscarPersonalidade(termo) {
         const listaTracos = traduzido && traduzido.tracos ? traduzido.tracos : (dados.traits || []);
         const tracos = listaTracos.map(t => `<span class="traco">${t}</span>`).join(" · ");
         
-        // 7) Monta o HTML
+        // 7) guarda tudo o que será salvo no banco
+        ultimoResultado = {
+            code: mbti,
+            nome: nome,
+            titulo: titulo,
+            descricao: descricao.trim(),
+            tracos: listaTracos.join(", ")
+        };
+
+        // 8) Monta o HTML
         areaResultado.innerHTML = `
             <article class="cartao">
                 <h1>${mbti}</h1>
@@ -165,8 +174,12 @@ async function buscarPersonalidade(termo) {
                     ⭐ Salvar nos favoritos
                 </button>
             </article>`;
-    } catch (erro) {
-        areaResultado.innerHTML = "<p>Erro ao buscar personalidade.</p>";
+
+        } catch (erro) {
+        console.log(erro);
+        areaResultado.innerHTML = erro.message === "nao-encontrado"
+            ? "<p>Tipo não encontrado. Tente algo como INTJ ou ENFP.</p>"
+            : "<p>Falha de conexão. Verifique a internet e tente novamente.</p>";
     }
 }
 
@@ -217,7 +230,7 @@ btnTema.addEventListener('click', () => {
     }
 });
 // ================= PERSISTÊNCIA (Supabase) =================
-const TABELA = "Favoritos";   // <-- exatamente como está no Supabase (maiúscula incluída)
+const TABELA = "favoritos";   // <-- exatamente como está no Supabase 
 const db = supabase.createClient(PROJETO_URL, CHAVE_PUBLICA);
 const listaFavoritos = document.getElementById("lista-favoritos");
 
@@ -274,7 +287,7 @@ async function carregarFavoritos() {
                 <b>${f.code}</b> — ${f.titulo || ""}<br>
                 <small>${tracos}</small>
             </span>
-            <button onclick="removerFavorito(${f.id})">✖</button>
+                <button onclick="removerFavorito('${f.id}')">✖</button>
         </div>`;
     }).join("");
 }
