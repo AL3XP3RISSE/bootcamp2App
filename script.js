@@ -212,4 +212,64 @@ btnTema.addEventListener('click', () => {
         btnTema.textContent = '🌙'; // Muda o ícone para a lua
     }
 });
+// ================= PERSISTÊNCIA (Supabase) =================
+const TABELA = "Favoritos";   // <-- igual ao nome no banco (maiúsculas incluídas)
+const db = supabase.createClient(PROJETO_URL, CHAVE_PUBLICA);
+const listaFavoritos = document.getElementById("lista-favoritos");
 
+// ---------- CREATE ----------
+async function salvarFavorito(tipo, grupo, titulo) {
+    const { error } = await db.from(TABELA).insert({ tipo, grupo, titulo });
+
+    if (error) {
+        console.log(error);
+        // 23505 = violação de UNIQUE (já é favorito)
+        const msg = error.code === "23505"
+            ? `${tipo} já está nos seus favoritos!`
+            : "Não foi possível salvar agora. Tente novamente.";
+        alert(msg);
+        return;
+    }
+    carregarFavoritos();
+}
+
+// ---------- READ ----------
+async function carregarFavoritos() {
+    const { data, error } = await db.from(TABELA)
+        .select("*")
+        .order("criado_em", { ascending: false });
+
+    if (error) {
+        console.log(error);
+        listaFavoritos.innerHTML =
+            '<div class="erro">Não foi possível carregar os favoritos.</div>';
+        return;
+    }
+
+    if (data.length === 0) {
+        listaFavoritos.innerHTML = "<p>Nenhum favorito ainda. Busque e salve!</p>";
+        return;
+    }
+
+    listaFavoritos.innerHTML = data.map(f => `
+        <div class="fav-item">
+            <span onclick="buscarPersonalidade('${f.tipo.toLowerCase()}')" style="cursor:pointer">
+                <b>${f.tipo}</b> — ${f.titulo}
+            </span>
+            <button onclick="removerFavorito('${f.tipo}')">✖</button>
+        </div>`).join("");
+}
+
+// ---------- DELETE ----------
+async function removerFavorito(tipo) {
+    const { error } = await db.from(TABELA).delete().eq("tipo", tipo);
+    if (error) {
+        console.log(error);
+        alert("Não foi possível remover agora.");
+        return;
+    }
+    carregarFavoritos();
+}
+
+// Carrega a lista ao abrir a página
+carregarFavoritos();
