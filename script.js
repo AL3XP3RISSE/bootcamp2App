@@ -272,6 +272,7 @@ async function carregarFavoritos() {
     }
 
     const validos = data.filter(f => f.code);
+    document.getElementById("contador-favoritos").textContent = `(${validos.length})`;
 
     if (validos.length === 0) {
         listaFavoritos.innerHTML = "<p>Nenhum favorito ainda. Busque e salve!</p>";
